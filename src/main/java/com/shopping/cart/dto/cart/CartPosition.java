@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
+
 /**
  * Класс объекта массив товаров
  *
@@ -15,14 +16,15 @@ import lombok.ToString;
 @Getter
 @EqualsAndHashCode
 @ToString
-public class ArrayProducts {
+public class CartPosition {
+
     /**
      * Поле со значением - id товара
      */
-    private Integer id;
+    private final Integer id;
 
     /**
      * Поле со значением - количество товаров
      */
-    private Integer quantity;
+    private final Integer quantity;
 }

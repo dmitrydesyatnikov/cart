@@ -1,6 +1,6 @@
-package com.shopping.cart.dto.calculatedCart;
+package com.shopping.cart.dto.calculated;
 
-import com.shopping.cart.dto.cart.ArrayProducts;
+import com.shopping.cart.dto.cart.CartPosition;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -16,10 +16,11 @@ import java.math.BigDecimal;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @ToString
-public class CalculatedArrayProducts extends ArrayProducts {
-    private BigDecimal subtotal;
+public class CalculatedCartPosition extends CartPosition {
 
-    public CalculatedArrayProducts(Integer id, Integer quantity, BigDecimal subtotal) {
+    private final BigDecimal subtotal;
+
+    public CalculatedCartPosition(Integer id, Integer quantity, BigDecimal subtotal) {
         super(id, quantity);
         this.subtotal = subtotal;
     }

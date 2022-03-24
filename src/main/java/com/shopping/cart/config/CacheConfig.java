@@ -1,18 +1,20 @@
-package com.shopping.cart;
+package com.shopping.cart.config;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import com.shopping.cart.client.ProductClient;
 import com.shopping.cart.dto.cart.Product;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@RequiredArgsConstructor
 public class CacheConfig {
-    @Autowired
-    private ProductClient productClient;
+
+    private final ProductClient productClient;
+
     @Bean
     public LoadingCache<Integer, Product> getGuavaProductCache(){
         return CacheBuilder.newBuilder().build(new CacheLoader<Integer, Product>() {

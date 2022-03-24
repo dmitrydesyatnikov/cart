@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 @ToString
 public class Product {
+
     private Integer id;
     private BigDecimal price;
 }

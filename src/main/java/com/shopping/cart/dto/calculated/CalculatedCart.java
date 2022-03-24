@@ -1,4 +1,4 @@
-package com.shopping.cart.dto.calculatedCart;
+package com.shopping.cart.dto.calculated;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
+
 /**
  * Класс объекта расчитанная корзина
  *
@@ -18,14 +19,15 @@ import java.util.List;
 @EqualsAndHashCode
 @ToString
 public class CalculatedCart {
+
     /**
      * Поле со значениями - рассчитанного массива товаров
      */
-    private List<CalculatedArrayProducts> products;
+    private final List<CalculatedCartPosition> products;
 
     /**
      * Поле со значением - общая сумма
      */
-    private BigDecimal totalSum ;
+    private final BigDecimal totalSum ;
 
 }

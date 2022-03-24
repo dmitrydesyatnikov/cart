@@ -1,6 +1,7 @@
-package com.shopping.cart.loaderFromCache;
+package com.shopping.cart.cache;
 
 import com.shopping.cart.dto.cart.Product;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.google.common.cache.LoadingCache;
 import org.springframework.stereotype.Component;
@@ -9,12 +10,13 @@ import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 
 @Component
-public class ProductFromCache {
+@Slf4j
+public class ProductCache {
 
     private final LoadingCache<Integer, Product> cache;
 
     @Autowired
-    public ProductFromCache(LoadingCache<Integer, Product> cache){
+    public ProductCache(LoadingCache<Integer, Product> cache){
         this.cache=cache;
     }
 
@@ -22,7 +24,7 @@ public class ProductFromCache {
         try {
             return Optional.of(cache.get(id));
         } catch (ExecutionException e) {
-            e.printStackTrace();
+            log.error("Error while getting product from cache", e);
             return Optional.empty();
         }
     }
